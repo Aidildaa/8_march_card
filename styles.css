@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#falling-flowers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.falling-flower {
+  position: absolute;
+  font-size: 20px;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(-50px) rotate(0deg);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+  }
+}
+
+.invite {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: slideIn 1s ease-out;
+}
+
+h1 {
+  color: #ff1493;
+  font-size: 24px;
+  margin: 0 0 10px;
+  text-shadow: 0 0 5px #ff69b4;
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.details {
+  background: rgba(255, 230, 242, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #ff69b4;
+}
+
+.flower {
+  font-size: 30px;
+  position: absolute;
+  animation: float 3s infinite ease-in-out;
+}
+
+.flower:nth-child(1) { top: 5%; left: 5%; }
+.flower:nth-child(2) { bottom: 5%; right: 5%; }
+
+button {
+  background: #ff69b4;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #ff1493;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #ff1493;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff69b4;
+}
+
+#response {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ff1493;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ff69b4;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-100vh); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 5px #ff69b4; }
+  100% { text-shadow: 0 0 10px #ff69b4; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  h1 {
+      font-size: 20px;
+  }
+  p {
+      font-size: 14px;
+  }
+  .details {
+      padding: 8px;
+      font-size: 14px;
+  }
+  button {
+      padding: 8px 15px;
+      font-size: 14px;
+  }
+  .flower {
+      font-size: 25px;
+  }
+  .falling-flower {
+      font-size: 15px;
+  }
+}
